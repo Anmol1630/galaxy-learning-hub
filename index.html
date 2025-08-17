@@ -1,0 +1,203 @@
+i wan to deply my webiste https://github.com/Anmol1630/galaxy-learning-hub here <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galaxy Learning Hub - Free Tech Courses</title>
+  <style>
+    /* Reset + Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    h1,h2,h3 { line-height: 1.2; }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, #8B5CF6, #3B82F6, #10B981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 6s infinite linear;
+      background-size: 200% auto;
+    }
+    @keyframes shimmer {
+      to { background-position: 200% center; }
+    }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 700px;
+    }
+    .hero .cta-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      color: white;
+    }
+    .btn-primary { background: linear-gradient(45deg, #8B5CF6, #3B82F6); }
+    .btn-secondary { background: linear-gradient(45deg, #1DA1F2, #0ea5e9); }
+    .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+    /* Courses Section */
+    .courses {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .courses h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .course-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 25px rgba(139, 92, 246, 0.3);
+    }
+    .course-card h3 { margin: 1rem 0; color: #f8fafc; }
+    .course-card p { color: #94a3b8; font-size: 0.95rem; }
+    .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .tag {
+      background: rgba(139, 92, 246, 0.25);
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      color: #e2e8f0;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+    }
+
+    /* Bonus Section */
+    .bonus {
+      background: rgba(16, 185, 129, 0.1);
+      border-top: 1px solid rgba(16, 185, 129, 0.3);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .bonus h2 { color: #10B981; margin-bottom: 1rem; }
+    .bonus p { color: #94a3b8; max-width: 700px; margin: auto; }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+    footer a { color: #3B82F6; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Unlock Free Premium Tech Courses 🚀</h1>
+    <p>Grow your skills in Web Dev, DSA, Blockchain, ML & more. All premium courses, available to help you level up in your tech journey – 100% FREE.</p>
+    <div class="cta-buttons">
+      <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-secondary">🐦 Follow on X</a>
+      <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-primary">💬 DM for Courses</a>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="courses">
+    <h2>🌟 Premium Course Collection</h2>
+    <div class="courses-grid">
+      <div class="course-card">
+        <h3>🧠 Data Structures & Algorithms</h3>
+        <p>Master the foundations of problem-solving with in-depth DSA content.</p>
+        <div class="tags">
+          <span class="tag">Arrays</span>
+          <span class="tag">Graphs</span>
+          <span class="tag">Trees</span>
+          <span class="tag">DP</span>
+        </div>
+      </div>
+      <div class="course-card">
+        <h3>🌐 Web Development</h3>
+        <p>Build full-stack web apps using the latest frameworks & tools.</p>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Next.js</span>
+        </div>
+      </div>
+      <div class="course-card">
+        <h3>⛓ Blockchain Development</h3>
+        <p>Dive into Web3, smart contracts & the future of decentralized apps.</p>
+        <div class="tags">
+          <span class="tag">Solidity</span>
+          <span class="tag">Web3</span>
+          <span class="tag">NFTs</span>
+        </div>
+      </div>
+      <div class="course-card">
+        <h3>🏗 System Design</h3>
+        <p>Learn how to design scalable systems used by top tech companies.</p>
+        <div class="tags">
+          <span class="tag">Microservices</span>
+          <span class="tag">Databases</span>
+          <span class="tag">Caching</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonus ML Section -->
+  <section class="bonus">
+    <h2>🤖 Bonus: Machine Learning Insights</h2>
+    <p>Follow for exclusive ML tutorials, AI trends & deployment guides. Learn how to take models from Jupyter notebooks to real-world applications.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Galaxy Learning Hub | Built with 💻 | Connect on <a href="https://x.com/axnmolsharma" target="_blank">Twitter</a>
+  </footer>
+</body>
+</html>
