@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galaxy Learning Hub - Free Tech Courses</title>
+  <title>Galaxy Learning Hub - AI-Powered Tech Courses 🐦</title>
   <style>
     /* Reset + Base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
-      color: #e2e8f0;
+      font-family: 'Orbitron', 'Segoe UI', Tahoma, sans-serif;
+      background: #050811;
+      color: #d1d5db;
       overflow-x: hidden;
+      position: relative;
     }
     a { text-decoration: none; }
-    h1,h2,h3 { line-height: 1.2; }
+    h1, h2, h3 { line-height: 1.2; }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(5, 8, 17, 0.95), rgba(3, 6, 20, 1));
+    }
 
     /* Hero Section */
     .hero {
@@ -25,142 +37,222 @@
       justify-content: center;
       text-align: center;
       padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
     }
     .hero h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(45deg, #8B5CF6, #3B82F6, #10B981);
+      font-size: 4rem;
+      background: linear-gradient(45deg, #ff0088, #00ccff, #00ff99);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 6s infinite linear;
-      background-size: 200% auto;
+      animation: neonGlow 3s ease-in-out infinite alternate;
+      background-size: 300% auto;
+      text-shadow: 0 0 20px rgba(0, 204, 255, 0.7);
     }
-    @keyframes shimmer {
-      to { background-position: 200% center; }
+    @keyframes neonGlow {
+      0% { background-position: 0% 50%; text-shadow: 0 0 10px rgba(0, 204, 255, 0.5); }
+      100% { background-position: 300% 50%; text-shadow: 0 0 30px rgba(0, 204, 255, 0.9); }
     }
     .hero p {
-      margin-top: 1rem;
-      font-size: 1.25rem;
-      color: #94a3b8;
-      max-width: 700px;
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      color: #9ca3af;
+      max-width: 800px;
+      animation: fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .hero .cta-buttons {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
       justify-content: center;
     }
     .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
       cursor: pointer;
       border: none;
-      transition: all 0.3s ease;
-      color: white;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      z-index: 1;
     }
-    .btn-primary { background: linear-gradient(45deg, #8B5CF6, #3B82F6); }
-    .btn-secondary { background: linear-gradient(45deg, #1DA1F2, #0ea5e9); }
-    .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn:hover::before { left: 100%; }
+    .btn-primary { background: linear-gradient(45deg, #ff0088, #00ccff); }
+    .btn-secondary { background: linear-gradient(45deg, #00ff99, #0066ff); }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 204, 255, 0.5); }
 
     /* Courses Section */
     .courses {
-      padding: 5rem 2rem;
-      max-width: 1200px;
+      padding: 6rem 2rem;
+      max-width: 1400px;
       margin: auto;
+      position: relative;
     }
     .courses h2 {
       text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-      text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+      font-size: 2.5rem;
+      margin-bottom: 4rem;
+      color: #00ccff;
+      text-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
     }
     .course-card {
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(139, 92, 246, 0.4);
-      border-radius: 15px;
-      padding: 2rem;
+      background: rgba(10, 15, 30, 0.9);
+      border: 2px solid #00ccff;
+      border-radius: 20px;
+      padding: 2.5rem;
       text-align: center;
-      transition: 0.3s;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 204, 255, 0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .course-card:hover::before { opacity: 1; }
     .course-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 25px rgba(139, 92, 246, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0, 204, 255, 0.4);
+      border-color: #ff0088;
     }
-    .course-card h3 { margin: 1rem 0; color: #f8fafc; }
-    .course-card p { color: #94a3b8; font-size: 0.95rem; }
+    .course-card h3 {
+      margin: 1rem 0;
+      color: #d1d5db;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+    }
+    .course-card p { color: #9ca3af; font-size: 1rem; }
     .tags {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
     .tag {
-      background: rgba(139, 92, 246, 0.25);
-      border: 1px solid rgba(139, 92, 246, 0.5);
-      color: #e2e8f0;
-      font-size: 0.8rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
+      background: rgba(0, 204, 255, 0.15);
+      border: 1px solid #00ccff;
+      color: #d1d5db;
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
     }
+    .tag:hover { background: #00ccff; color: #050811; }
 
     /* Bonus Section */
     .bonus {
-      background: rgba(16, 185, 129, 0.1);
-      border-top: 1px solid rgba(16, 185, 129, 0.3);
-      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 3rem 2rem;
+      background: linear-gradient(45deg, rgba(0, 204, 255, 0.08), rgba(0, 255, 153, 0.08));
+      border-top: 2px solid #00ff99;
+      border-bottom: 2px solid #00ff99;
+      padding: 4rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .bonus h2 { color: #10B981; margin-bottom: 1rem; }
-    .bonus p { color: #94a3b8; max-width: 700px; margin: auto; }
+    .bonus::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 204, 255, 0.15), transparent);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .bonus h2 {
+      color: #00ff99;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
+    }
+    .bonus p { color: #9ca3af; max-width: 800px; margin: auto; font-size: 1.1rem; }
 
     /* Footer */
     footer {
-      background: #0f172a;
-      padding: 2rem;
+      background: #050811;
+      padding: 2.5rem;
       text-align: center;
-      font-size: 0.9rem;
-      color: #64748b;
+      font-size: 1rem;
+      color: #4b5563;
+      border-top: 1px solid rgba(0, 204, 255, 0.2);
     }
-    footer a { color: #3B82F6; font-weight: bold; }
+    footer a { color: #00ccff; font-weight: bold; transition: color 0.3s; }
+    footer a:hover { color: #ff0088; }
   </style>
 </head>
 <body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
   <!-- Hero -->
   <section class="hero">
-    <h1>Unlock Free Premium Tech Courses 🚀</h1>
-    <p>Grow your skills in Web Dev, DSA, Blockchain, ML & more. All premium courses, available to help you level up in your tech journey – 100% FREE.</p>
+    <h1>Unlock AI-Powered Tech Learning 🚀🐦</h1>
+    <p>Master Web Dev, DSA, Blockchain, ML & more with cutting-edge, AI-curated premium courses on X. Elevate your tech journey – 100% FREE 🐦.</p>
     <div class="cta-buttons">
       <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-secondary">🐦 Follow on X</a>
-      <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-primary">💬 DM for Courses</a>
+      <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-primary">💬 DM for Courses 🐦</a>
     </div>
   </section>
 
   <!-- Courses -->
   <section class="courses">
-    <h2>🌟 Premium Course Collection</h2>
+    <h2>🌌 AI-Curated Course Collection 🐦</h2>
     <div class="courses-grid">
       <div class="course-card">
-        <h3>🧠 Data Structures & Algorithms</h3>
-        <p>Master the foundations of problem-solving with in-depth DSA content.</p>
+        <h3>🧠 Data Structures & Algorithms 🐦</h3>
+        <p>Master problem-solving with AI-optimized DSA courses tailored for real-world challenges on X.</p>
         <div class="tags">
           <span class="tag">Arrays</span>
           <span class="tag">Graphs</span>
           <span class="tag">Trees</span>
-          <span class="tag">DP</span>
+          <span class="tag">Dynamic Programming</span>
         </div>
       </div>
       <div class="course-card">
-        <h3>🌐 Web Development</h3>
-        <p>Build full-stack web apps using the latest frameworks & tools.</p>
+        <h3>🌐 Web Development 🐦</h3>
+        <p>Build futuristic full-stack apps with AI-driven frameworks & tools shared on X.</p>
         <div class="tags">
           <span class="tag">React</span>
           <span class="tag">Node.js</span>
@@ -169,21 +261,23 @@
         </div>
       </div>
       <div class="course-card">
-        <h3>⛓ Blockchain Development</h3>
-        <p>Dive into Web3, smart contracts & the future of decentralized apps.</p>
+        <h3>⛓ Blockchain & Web3 🐦</h3>
+        <p>Explore decentralized tech with AI-guided smart contract & Web3 development via X.</p>
         <div class="tags">
           <span class="tag">Solidity</span>
-          <span class="tag">Web3</span>
+          <span class="tag">Web3.js</span>
           <span class="tag">NFTs</span>
+          <span class="tag">DeFi</span>
         </div>
       </div>
       <div class="course-card">
-        <h3>🏗 System Design</h3>
-        <p>Learn how to design scalable systems used by top tech companies.</p>
+        <h3>🏗 System Design 🐦</h3>
+        <p>Design scalable, AI-enhanced systems inspired by top tech architectures on X.</p>
         <div class="tags">
           <span class="tag">Microservices</span>
           <span class="tag">Databases</span>
           <span class="tag">Caching</span>
+          <span class="tag">Load Balancing</span>
         </div>
       </div>
     </div>
@@ -191,13 +285,35 @@
 
   <!-- Bonus ML Section -->
   <section class="bonus">
-    <h2>🤖 Bonus: Machine Learning Insights</h2>
-    <p>Follow for exclusive ML tutorials, AI trends & deployment guides. Learn how to take models from Jupyter notebooks to real-world applications.</p>
+    <h2>🤖 Bonus: AI & Machine Learning Insights 🐦</h2>
+    <p>Access exclusive AI-driven ML tutorials, cutting-edge trends, and deployment guides shared on X. Transform your models into real-world solutions.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    © 2025 Galaxy Learning Hub | Built with 💻 | Connect on <a href="https://x.com/axnmolsharma" target="_blank">Twitter</a>
+    © 2025 Galaxy Learning Hub | Powered by AI 💻🐦 | Connect on <a href="https://x.com/axnmolsharma" target="_blank">X</a>
   </footer>
+
+  <!-- Particles.js Script -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ['#00ccff', '#ff0088', '#00ff99'] },
+        shape: { type: 'circle' },
+        opacity: { value: 0.4, random: true },
+        size: { value: 2.5, random: true },
+        line_linked: { enable: true, distance: 120, color: '#00ccff', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.5, direction: 'none', random: true }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+        modes: { repulse: { distance: 80 }, push: { particles_nb: 3 } }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
