@@ -2,1494 +2,454 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galaxy Learning Hub - Transform Your Tech Career</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anmol Prashar · Data Scientist & ML Engineer</title>
+  <meta name="description" content="Portfolio of Anmol Prashar – Data Science, Machine Learning, Deep Learning, NLP, and Frontend projects." />
+  <meta property="og:title" content="Anmol Prashar · Data Scientist" />
+  <meta property="og:description" content="AI + Web – Projects, skills, case studies, and contact." />
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2300b7eb'/%3E%3Cpath d='M50 16 61 50 50 84 39 50z' fill='%23ff00ff'/%3E%3C/svg%3E" />
   <style>
-    /* Reset + Modern Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     :root {
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --secondary: #ec4899;
-      --accent: #10b981;
-      --bg-dark: #0f0f23;
-      --bg-card: #1a1a2e;
-      --bg-glass: rgba(26, 26, 46, 0.8);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border: rgba(99, 102, 241, 0.2);
-      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --glow: 0 0 30px rgba(99, 102, 241, 0.3);
+      --bg: #05070a;
+      --panel: rgba(255, 255, 255, 0.05);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --txt: #e8f4ff;
+      --muted: #a7b6c4;
+      --primary: #00b7eb;
+      --accent: #ff00ff;
+      --hint: #00ffcc;
+      --ring: rgba(0, 183, 235, 0.45);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04) inset;
     }
 
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-primary);
-      overflow-x: hidden;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    /* Glass Morphism Background */
-    .bg-pattern {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: 
-        radial-gradient(ellipse 80% 80% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
-        radial-gradient(ellipse 80% 80% at 80% 80%, rgba(236, 72, 153, 0.1), transparent),
-        radial-gradient(ellipse 80% 80% at 20% 60%, rgba(16, 185, 129, 0.1), transparent);
-    }
-
-    .grain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 0;
-      background: rgba(15, 15, 35, 0.8);
-      backdrop-filter: blur(20px) saturate(1.8);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-      background: rgba(99, 102, 241, 0.1);
-    }
-
-    /* Mobile menu toggle */
-    .mobile-menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    .mobile-menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: var(--text-primary);
-      margin: 3px 0;
-      transition: 0.3s;
-      border-radius: 2px;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 2rem;
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 0.5rem 1.5rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(20px);
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 50%, var(--secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 3rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 0.8s ease-out 0.4s both;
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.8s ease-out 0.6s both;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 32px 64px -12px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn-secondary {
-      background: var(--bg-glass);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(20px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(99, 102, 241, 0.1);
-      border-color: var(--primary);
-    }
-
-    /* Pulse effect for urgent CTAs */
-    .btn-urgent {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-    }
-
-    /* Stats Section */
-    .stats {
-      padding: 4rem 2rem;
-      margin: 2rem 0;
-    }
-
-    .stats-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 2rem;
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      backdrop-filter: blur(20px);
-      transition: all 0.3s ease;
-    }
-
-    .stat-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: var(--glow);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    /* Features Section */
-    .features {
-      padding: 6rem 2rem;
-    }
-
-    .features-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--text-primary), var(--primary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .section-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature-card {
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: var(--glow);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .feature-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .feature-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .feature-price {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .price-original {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      text-decoration: line-through;
-    }
-
-    .price-current {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .price-badge {
-      background: linear-gradient(135deg, var(--secondary), #f59e0b);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    /* Courses Section */
-    .courses {
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
-    }
-
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .course-card {
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .course-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: var(--glow);
-    }
-
-    .course-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .course-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .course-level {
-      background: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .course-description {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .course-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tag {
-      background: rgba(99, 102, 241, 0.1);
-      color: var(--primary);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-
-    /* Portfolio Showcase */
-    .portfolio {
-      padding: 6rem 2rem;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .portfolio-item {
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      backdrop-filter: blur(20px);
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: var(--glow);
-    }
-
-    .portfolio-image {
-      height: 200px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .portfolio-content {
-      padding: 1.5rem;
-    }
-
-    .portfolio-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .portfolio-description {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .portfolio-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tech-tag {
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--accent);
-      padding: 0.25rem 0.5rem;
-      border-radius: 12px;
-      font-size: 0.7rem;
-      font-weight: 500;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(99, 102, 241, 0.05));
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial-card {
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.2);
-    }
-
-    .testimonial-content {
-      font-style: italic;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: white;
-    }
-
-    .author-info h4 {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .author-info p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      padding: 6rem 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-    }
-
-    .cta-content {
-      max-width: 600px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .cta-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .cta-subtitle {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .btn-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--bg-card);
-      padding: 3rem 2rem 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h3 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
-    }
-
-    .footer-section p,
-    .footer-section a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a:hover {
-      color: var(--primary);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .animate-on-scroll.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-card);
-        flex-direction: column;
-        padding: 1rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .mobile-menu-toggle {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .cta-title {
-        font-size: 2rem;
-      }
-
-      .cta-group,
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-      }
-
-      .features-grid,
-      .courses-grid,
-      .portfolio-grid,
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-dark);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Floating notification */
-    .floating-notification {
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      background: var(--bg-glass);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem;
-      backdrop-filter: blur(20px);
-      max-width: 300px;
-      z-index: 1001;
-      transform: translateX(350px);
-      transition: transform 0.3s ease;
-    }
-
-    .floating-notification.show {
-      transform: translateX(0);
-    }
-
-    .notification-close {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 1.2rem;
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      color: var(--txt); background: radial-gradient(1200px 800px at 50% -10%, #0b1220 0%, var(--bg) 45%);
+      overflow-x: hidden; line-height: 1.6; letter-spacing:.2px;
+    }
+
+    /* ===== Galaxy bg (GPU-friendly) ===== */
+    .sky { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .stars, .twinkle {
+      position: absolute; inset: -50% -50%; width: 200%; height: 200%;
+      background-repeat: repeat; will-change: transform; filter: drop-shadow(0 0 1px rgba(255,255,255,.25));
+    }
+    .stars { background-image:
+      radial-gradient(2px 2px at 20px 30px,#cfd8e3,transparent),
+      radial-gradient(1px 1px at 40px 70px,#e2e8f0,transparent),
+      radial-gradient(1px 1px at 90px 40px,#cbd5e1,transparent),
+      radial-gradient(2px 2px at 120px 80px,#a5b4fc,transparent),
+      radial-gradient(2px 2px at 160px 30px,#93c5fd,transparent);
+      background-size: 220px 140px; opacity: .5;
+      animation: drift 60s linear infinite;
+    }
+    .twinkle { background-image:
+      radial-gradient(2px 2px at 10px 10px,#fff,transparent),
+      radial-gradient(2px 2px at 70px 50px,#fff,transparent),
+      radial-gradient(1px 1px at 130px 90px,#fff,transparent);
+      background-size: 240px 160px; opacity:.25; animation: drift 90s linear infinite reverse;
+    }
+    @keyframes drift { to { transform: translate3d(-10%, -10%, 0) scale(1.05); } }
+
+    /* ===== Top Nav ===== */
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.35)); border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding: 14px 20px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.6px; }
+    .logo { width: 28px; height: 28px; border-radius: 50%; background: conic-gradient(from 220deg, var(--primary), var(--accent), var(--hint)); box-shadow: 0 0 40px rgba(0,183,235,.35); }
+    .brand span { background: linear-gradient(45deg, var(--primary), var(--accent), var(--hint)); -webkit-background-clip:text; color: transparent; font-size: 1.05rem; }
+    nav ul { list-style:none; display:flex; gap: 10px; padding:0; margin:0; }
+    nav a { display:block; padding: 8px 14px; color: var(--txt); text-decoration:none; border-radius: 999px; border: 1px solid transparent; font-weight:600; font-size:.95rem; }
+    nav a[aria-current="page"], nav a:hover { border-color: var(--ring); background: linear-gradient(45deg, rgba(0,183,235,.15), rgba(255,0,255,.15)); box-shadow: 0 0 18px rgba(0,183,235,.25); }
+
+    /* ===== Layout ===== */
+    main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    section { scroll-margin-top: 90px; }
+
+    /* ===== Hero ===== */
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; padding: 48px 0 30px; }
+    .h-title { font-size: clamp(34px, 6vw, 64px); line-height: 1.08; margin: 0 0 8px; font-weight: 900;
+      background: linear-gradient(45deg, var(--primary), var(--accent), var(--hint)); -webkit-background-clip:text; color: transparent;
+      text-shadow: 0 0 24px rgba(0,183,235,.2);
+    }
+    .h-sub { font-size: clamp(18px, 2.5vw, 26px); color: var(--primary); min-height: 36px; }
+    .h-desc { color: var(--muted); max-width: 60ch; }
+    .cta-row { display:flex; flex-wrap: wrap; gap:12px; margin-top: 22px; }
+    .btn { padding: 12px 18px; border-radius: 12px; font-weight:700; text-decoration:none; color: #06141f; background: linear-gradient(45deg, var(--primary), var(--accent)); border: none; box-shadow: var(--shadow); display:inline-flex; align-items:center; gap:10px; }
+    .btn.outline { background: transparent; color: var(--txt); border: 1px solid var(--ring); }
+    .panel { background: var(--panel); border: 1px solid rgba(255,255,255,.10); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero-card { padding: 18px; }
+    .quick { display:grid; gap:10px; }
+    .quick .row { display:flex; align-items:center; gap:10px; font-size:.95rem; color: var(--muted); }
+
+    /* ===== Sections ===== */
+    .section-head { text-align:center; margin: 40px 0 10px; }
+    .section-head h2 { font-size: clamp(26px, 4vw, 38px); margin:.2rem 0; font-weight: 900; letter-spacing:.4px; }
+    .section-head p { color: var(--muted); margin: 0 auto; max-width: 60ch; }
+
+    /* ===== Skills ===== */
+    .grid { display:grid; gap:18px; }
+    .skills { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 20px; }
+    .skill { padding: 18px; transition: transform .25s ease, border-color .25s ease; }
+    .skill:hover { transform: translateY(-6px); border-color: var(--ring); }
+    .tags { display:flex; flex-wrap: wrap; gap:8px; margin-top: 10px; }
+    .tag { padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(45deg, rgba(0,183,235,.15), rgba(255,0,255,.12)); font-size:.85rem; }
+
+    /* ===== Projects ===== */
+    .projects { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 24px; }
+    .card { position:relative; overflow:hidden; padding: 18px; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-6px); border-color: var(--ring); box-shadow: 0 18px 50px rgba(0,183,235,.18); }
+    .card h3 { margin: 6px 0 8px; font-size: 1.15rem; letter-spacing:.2px; color: #ffe6ff; }
+    .card p { color: var(--muted); margin: 0 0 10px; min-height: 56px; }
+    .tech { display:flex; flex-wrap: wrap; gap:6px; }
+    .tech span { font-size:.78rem; border: 1px dashed rgba(255,255,255,.15); padding: 4px 8px; border-radius: 999px; }
+    .card .more { margin-top: 12px; display:inline-flex; gap:8px; align-items:center; color: var(--primary); cursor:pointer; }
+
+    /* ===== About ===== */
+    .about { display:grid; grid-template-columns: 1.2fr .8fr; gap: 22px; margin-top: 24px; }
+    .achv { padding: 18px; }
+    .achv h3 { margin: 0 0 8px; color: #ffd6ff; }
+    .chip { background: rgba(0,183,235,.12); border-left: 3px solid var(--primary); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
+
+    /* ===== Contact ===== */
+    .contact { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+    .c-card { padding: 18px; text-align:center; }
+    .c-card a { color: var(--primary); text-decoration:none; font-weight:700; }
+
+    /* ===== Footer ===== */
+    footer { text-align:center; color: var(--muted); padding: 40px 0 60px; }
+
+    /* ===== Modal ===== */
+    dialog { border: none; border-radius: 18px; background: #0b0f14; color: var(--txt); width: min(720px, 92vw); padding: 0; box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06) inset; }
+    dialog::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(3px); }
+    .modal-head { padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:space-between; }
+    .modal-body { padding: 18px; }
+    .x { background: transparent; border: 1px solid rgba(255,255,255,.18); color: var(--txt); border-radius: 10px; padding: 6px 10px; cursor:pointer; }
+
+    /* ===== Utilities ===== */
+    .hide { display:none; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Reduced motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .stars, .twinkle { animation: none; }
+      * { scroll-behavior: auto !important; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-pattern"></div>
-  <div class="grain"></div>
-
-  <!-- Floating Notification -->
-  <div class="floating-notification" id="notification">
-    <button class="notification-close" onclick="closeNotification()">&times;</button>
-    <div style="color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">🔥 Limited Offer!</div>
-    <div style="color: var(--text-secondary); font-size: 0.9rem;">Only 48 hours left for 90% discount on all courses!</div>
+  <!-- Background -->
+  <div class="sky" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="twinkle"></div>
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        🚀 Galaxy Hub
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>ANMOL PRASHAR</span>
       </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#features">Services</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
+      <nav>
+        <ul>
+          <li><a href="#home" data-link="home" aria-current="page">Home</a></li>
+          <li><a href="#about" data-link="about">About</a></li>
+          <li><a href="#skills" data-link="skills">Skills</a></li>
+          <li><a href="#projects" data-link="projects">Projects</a></li>
+          <li><a href="#contact" data-link="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" aria-label="Home">
+      <div class="hero">
+        <div>
+          <h1 class="h-title">Anmol Prashar</h1>
+          <div class="h-sub"><span id="typing"></span></div>
+          <p class="h-desc">Transforming complex data into actionable insights using Machine Learning, Deep Learning, and NLP. I build end‑to‑end AI products and sleek web experiences that actually ship.</p>
+          <div class="cta-row">
+            <a class="btn" href="#projects">🚀 Explore Projects</a>
+            <a class="btn outline" href="https://anmol1630.github.io/galaxy-learning-hub/" target="_blank" rel="noopener">🌌 Galaxy Learning Hub</a>
+          </div>
+        </div>
+        <aside class="panel hero-card" aria-label="Quick reach">
+          <div class="quick">
+            <div class="row">📧 <a href="mailto:anmolprasharr@gmail.com" class="btn outline">Email me</a></div>
+            <div class="row">💼 <a target="_blank" rel="noopener" class="btn outline" href="https://linkedin.com">LinkedIn</a></div>
+            <div class="row">📂 <a class="btn outline" href="#projects">Latest case studies</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-label="About">
+      <div class="section-head">
+        <h2>About Me</h2>
+        <p>Curious mind. Clean data. Clear impact. I love shipping AI solutions that solve real problems.</p>
+      </div>
+      <div class="about">
+        <article class="panel" style="padding:18px">
+          <h3 style="margin:0 0 8px;color:#a5f3fc">My Journey</h3>
+          <p style="margin:0;color:var(--muted)">Passionate about Data Science, ML, DL, and NLP — I turn raw data into insights and product features. I enjoy the full stack: data, models, APIs, and polished UIs.</p>
+          <h3 style="margin:18px 0 8px;color:#a5f3fc">Leadership & Activities</h3>
+          <p style="margin:0;color:var(--muted)">Marketing Head at NextGen Coders; organizer for SAPFEST 2025. These taught me team leadership, GTM thinking, and event execution.</p>
+        </article>
+        <aside class="panel achv" aria-label="Highlights">
+          <h3>Highlights</h3>
+          <div class="chip"><strong>Research Publication</strong><br/>Study Notion – Ed‑Tech (ITIDS 2024)</div>
+          <div class="chip"><strong>Marketing Head</strong><br/>NextGen Coders (2024)</div>
+          <div class="chip"><strong>Event Organizer</strong><br/>SAPFEST 2025</div>
+          <div class="chip"><strong>Tech Participation</strong><br/>Active at fests, workshops, hack events</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" aria-label="Skills">
+      <div class="section-head">
+        <h2>Technical Skills</h2>
+        <p>What I use to turn ideas into shipped products.</p>
+      </div>
+      <div class="grid skills">
+        <div class="panel skill">
+          <h3>Programming & Tools</h3>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+            <span class="tag">React</span>
+          </div>
+        </div>
+        <div class="panel skill">
+          <h3>Data Science</h3>
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">NLP</span>
+            <span class="tag">EDA</span>
+            <span class="tag">Data Visualization</span>
+          </div>
+        </div>
+        <div class="panel skill">
+          <h3>Libraries & Frameworks</h3>
+          <div class="tags">
+            <span class="tag">NumPy</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Scikit‑learn</span>
+            <span class="tag">TensorFlow</span>
+          </div>
+        </div>
+        <div class="panel skill">
+          <h3>Core Competencies</h3>
+          <div class="tags">
+            <span class="tag">Maths & Stats</span>
+            <span class="tag">Critical Thinking</span>
+            <span class="tag">Team Leadership</span>
+            <span class="tag">Event Management</span>
+          </div>
+        </div>
+        <div class="panel skill">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">English</span>
+            <span class="tag">Hindi</span>
+            <span class="tag">Punjabi</span>
+          </div>
+        </div>
+        <div class="panel skill">
+          <h3>Interests</h3>
+          <div class="tags">
+            <span class="tag">Content Writing</span>
+            <span class="tag">Traveling</span>
+            <span class="tag">Reading</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" aria-label="Projects">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <p>Real work. Real impact. Click “View case study” to see the process.</p>
+      </div>
+      <div class="grid projects">
+        <article class="panel card">
+          <h3>Student Exam Performance Predictor</h3>
+          <p>End‑to‑end ML pipeline with deployment on AWS/Azure. From data cleaning to model registry and a Flask UI for realtime predictions.</p>
+          <div class="tech"><span>Python</span><span>ML</span><span>AWS</span><span>Azure</span><span>Flask</span></div>
+          <div class="more" data-modal="case1">View case study →</div>
+        </article>
+        <article class="panel card">
+          <h3>PriceWise: Laptop Price Estimator</h3>
+          <p>Regression model predicting laptop prices from brand/specs. Full lifecycle: EDA → feature engineering → evaluation → packaging.</p>
+          <div class="tech"><span>Python</span><span>Regression</span><span>scikit‑learn</span><span>Pandas</span></div>
+          <div class="more" data-modal="case2">View case study →</div>
+        </article>
+        <article class="panel card">
+          <h3>Data Analysis Case Studies (5+)</h3>
+          <p>Exploratory analysis on diverse datasets, uncovering behavioral insights and building dashboards for decision support.</p>
+          <div class="tech"><span>EDA</span><span>Visualization</span><span>Matplotlib</span><span>Analytics</span></div>
+          <div class="more" data-modal="case3">View case study →</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-label="Contact">
+      <div class="section-head">
+        <h2>Let’s Build Something</h2>
+        <p>Open to internships, research collabs, and freelance ML/AI work.</p>
+      </div>
+      <div class="contact">
+        <div class="panel c-card">
+          <div style="font-size:2rem">📧</div>
+          <h3>Email</h3>
+          <a href="mailto:anmolprasharr@gmail.com">anmolprasharr@gmail.com</a>
+        </div>
+        <div class="panel c-card">
+          <div style="font-size:2rem">💼</div>
+          <h3>LinkedIn</h3>
+          <a target="_blank" rel="noopener" href="https://linkedin.com">Connect with me</a>
+        </div>
+        <div class="panel c-card">
+          <div style="font-size:2rem">🌌</div>
+          <h3>Galaxy Learning Hub</h3>
+          <a target="_blank" rel="noopener" href="https://anmol1630.github.io/galaxy-learning-hub/">Visit the hub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Anmol Prashar — Built with ❤️ & caffeine.</footer>
+  </main>
+
+  <!-- ===== Case Study Modals ===== -->
+  <dialog id="case1">
+    <div class="modal-head"><strong>Student Exam Performance Predictor</strong><button class="x" data-close>Close</button></div>
+    <div class="modal-body">
+      <p><strong>Problem →</strong> Predict exam outcomes to identify at‑risk students early.</p>
+      <p><strong>Solution →</strong> Cleaned data, engineered features (attendance, study time), trained multiple models, selected the best via cross‑validation, and deployed behind a Flask API.</p>
+      <ul>
+        <li>Pipeline: ingestion → validation → training → evaluation → registry</li>
+        <li>Monitoring: basic drift checks + logs</li>
+        <li>Infra: S3/Blob for artifacts; simple CI for tests</li>
       </ul>
-      <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        ⚡ Limited Time: 90% OFF Premium Courses
-      </div>
-      <h1>Transform Your Tech Career in 2025</h1>
-      <p class="hero-subtitle">
-        Master cutting-edge tech skills from industry legends, build a stunning portfolio, 
-        and skyrocket your career to 6-figure salaries. The complete transformation package!
-      </p>
-              <div class="cta-group">
-        <a href="https://x.com/messages" target="_blank" class="btn btn-primary btn-urgent">
-          🔥 Get Course + Portfolio - ₹500 Only
-        </a>
-        <a href="#features" class="btn btn-secondary">
-          📱 See All Packages
-        </a>
-      </div>
+  </dialog>
+  <dialog id="case2">
+    <div class="modal-head"><strong>PriceWise: Laptop Price Estimator</strong><button class="x" data-close>Close</button></div>
+    <div class="modal-body">
+      <p><strong>Problem →</strong> Estimate fair market prices given specs.</p>
+      <p><strong>Solution →</strong> Regression with feature crosses (CPU × RAM × GPU tiers), target transformation for skew; exported a lightweight model for web demo.</p>
+      <ul>
+        <li>Stack: scikit‑learn, Pandas</li>
+        <li>Evaluation: MAE/RMSE, residual diagnostics</li>
+        <li>Packaging: pickle + versioned artifacts</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section class="stats">
-    <div class="stats-container">
-      <div class="stat-item animate-on-scroll" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));">
-        <div class="stat-number" style="color: var(--accent);">₹250</div>
-        <div class="stat-label">Single Course (Lifetime Access)</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Pick any premium course</div>
-      </div>
-      <div class="stat-item animate-on-scroll" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.1)); border-color: var(--accent);">
-        <div class="stat-number" style="color: var(--secondary);">₹500</div>
-        <div class="stat-label">Course + Portfolio Bundle</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Best value combo deal</div>
-      </div>
-      <div class="stat-item animate-on-scroll" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(245, 158, 11, 0.1));">
-        <div class="stat-number" style="color: var(--primary);">∞</div>
-        <div class="stat-label">Lifetime Updates</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Never pay again</div>
-      </div>
+  </dialog>
+  <dialog id="case3">
+    <div class="modal-head"><strong>EDA Case Studies</strong><button class="x" data-close>Close</button></div>
+    <div class="modal-body">
+      <p>Behavioral insights across multiple datasets with clean, reproducible notebooks and visuals.</p>
+      <ul>
+        <li>Focus: cohort behavior, churn indicators, funnel drop‑offs</li>
+        <li>Deliverables: charts, executive summary, quick wins</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="features-container">
-      <div class="section-header">
-        <h2 class="section-title">🌟 Everything You Need to Succeed</h2>
-        <p class="section-subtitle">
-          Complete package worth ₹25,000+ for just ₹350. Limited time offer!
-        </p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card animate-on-scroll">
-          <div class="feature-icon">📚</div>
-          <h3 class="feature-title">50+ Premium Courses by Industry Legends</h3>
-          <p class="feature-description">
-            Learn from tech superstars: The "Namaste stack" guru, "Codeheal" DSA master, 
-            "Backend Pro" architect, "100 Days" web dev champion, "System Design" wizard, 
-            "tea or Code" mentor, and the "Alpha beta gamma" programming sensei. Plus many more legends!
-          </p>
-          <div class="feature-price">
-            <span class="price-original">₹25,000</span>
-            <span class="price-current">₹250</span>
-            <span class="price-badge">99% OFF</span>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">✨ Single Course • Lifetime Access</div>
-          <a href="https://x.com/messages" target="_blank" class="btn btn-primary">DM me on X</a>
-        </div>
-
-        <div class="feature-card animate-on-scroll" style="border: 2px solid var(--accent); box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);">
-          <div class="feature-icon" style="background: linear-gradient(135deg, var(--accent), var(--secondary));">💎</div>
-          <h3 class="feature-title">Course + Portfolio Website MEGA COMBO</h3>
-          <p class="feature-description">
-            Get ANY premium course PLUS a custom-built professional portfolio with modern design, 
-            animations, AI features, and deployment. The ultimate career transformation package!
-          </p>
-          <div class="feature-price">
-            <span class="price-original">₹4,250</span>
-            <span class="price-current">₹500</span>
-            <span class="price-badge" style="background: linear-gradient(135deg, var(--accent), #10b981);">88% OFF</span>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 1rem; font-weight: 600;">🚀 BEST VALUE • Most Popular</div>
-          <a href="https://x.com/messages" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #059669);">Get Mega Combo</a>
-        </div>
-
-        <div class="feature-card animate-on-scroll">
-          <div class="feature-icon">🎯</div>
-          <h3 class="feature-title">VIP Career Acceleration Program</h3>
-          <p class="feature-description">
-            Exclusive job referrals, interview prep with FAANG engineers, resume optimization, 
-            salary negotiation secrets, and direct connections to hiring managers at top companies.
-          </p>
-          <div class="feature-price">
-            <span class="price-original">₹15,000</span>
-            <span class="price-current">FREE</span>
-            <span class="price-badge">EXCLUSIVE BONUS</span>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 1rem; font-weight: 600;">🎁 FREE with any purchase</div>
-          <a href="https://whatsapp.com/channel/0029VbBccQv96H4ZOOCf8Z0x" target="_blank" class="btn btn-primary">Join VIP Program</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Job Opportunities Section -->
-  <section class="job-opportunities" style="padding: 6rem 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05));">
-    <div class="features-container">
-      <div class="section-header">
-        <h2 class="section-title">🎯 Job & Internship Opportunities</h2>
-        <p class="section-subtitle">
-          Access curated job and internship opportunities from top tech companies. Updated 
-          regularly with the latest openings and direct application links.
-        </p>
-      </div>
-      
-      <div class="job-categories-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
-        <div class="job-category-card animate-on-scroll" style="background: var(--bg-glass); border: 2px solid rgba(16, 185, 129, 0.3); border-radius: 20px; padding: 2rem; backdrop-filter: blur(20px); transition: all 0.3s ease;">
-          <div class="category-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="category-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🚀</div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--accent);">Startups & Unicorns</h3>
-          </div>
-          <div class="job-list" style="space-y: 1rem;">
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Software Engineer Roles</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Frontend Developer Positions</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Full-Stack Opportunities</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Internship Programs</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Remote-First Companies</div>
-          </div>
-        </div>
-
-        <div class="job-category-card animate-on-scroll" style="background: var(--bg-glass); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 20px; padding: 2rem; backdrop-filter: blur(20px); transition: all 0.3s ease;">
-          <div class="category-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="category-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🏢</div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--primary);">Big Tech Companies</h3>
-          </div>
-          <div class="job-list" style="space-y: 1rem;">
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">FAANG Job Openings</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Graduate Programs</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Engineering Internships</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Product Manager Roles</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Data Science Positions</div>
-          </div>
-        </div>
-
-        <div class="job-category-card animate-on-scroll" style="background: var(--bg-glass); border: 2px solid rgba(236, 72, 153, 0.3); border-radius: 20px; padding: 2rem; backdrop-filter: blur(20px); transition: all 0.3s ease;">
-          <div class="category-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="category-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #ec4899, #be185d); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🌐</div>
-            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--secondary);">Web3 & Blockchain</h3>
-          </div>
-          <div class="job-list" style="space-y: 1rem;">
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(236, 72, 153, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Smart Contract Developer</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(236, 72, 153, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">DeFi Protocol Engineer</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(236, 72, 153, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Blockchain Architect</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(236, 72, 153, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Web3 Frontend Developer</div>
-            <div class="job-item" style="padding: 0.75rem 1rem; background: rgba(236, 72, 153, 0.1); border-radius: 8px; margin-bottom: 0.5rem; color: var(--text-secondary);">Crypto Exchange Roles</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="job-cta" style="text-align: center; margin-top: 3rem;">
-        <div style="background: var(--bg-glass); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; backdrop-filter: blur(20px); max-width: 600px; margin: 0 auto;">
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🔥 Get Exclusive Access</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Join our VIP community for direct job notifications, referrals, and insider tips from industry professionals.</p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://whatsapp.com/channel/0029VbBccQv96H4ZOOCf8Z0x" target="_blank" class="btn btn-primary">Join Job Alerts</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .job-category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
-    }
-    
-    .job-item {
-      transition: all 0.2s ease;
-    }
-    
-    .job-item:hover {
-      transform: translateX(5px);
-      background: rgba(255, 255, 255, 0.1) !important;
-    }
-  </style>
-  <section class="courses" id="courses">
-    <div class="features-container">
-      <div class="section-header">
-        <h2 class="section-title">🚀 Master In-Demand Skills By unlocking the Courses of your choice</h2>
-        <p class="section-subtitle">
-          Industry-tested curriculum designed by experts from FAANG companies
-        </p>
-      </div>
-      
-      <div class="courses-grid">
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">🌐 Full Stack Development</h3>
-              <div class="course-level">Advanced</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Build modern web applications with React, Node.js, and cutting-edge technologies.
-          </p>
-          <div class="course-tags">
-            <span class="tag">React & Next.js</span>
-            <span class="tag">Node.js & Express</span>
-            <span class="tag">MongoDB & SQL</span>
-            <span class="tag">AWS Deployment</span>
-          </div>
-        </div>
-
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">⛓️ Blockchain & Web3</h3>
-              <div class="course-level">Premium</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Enter the future with blockchain development, smart contracts, and DeFi protocols.
-          </p>
-          <div class="course-tags">
-            <span class="tag">Solidity</span>
-            <span class="tag">Web3.js</span>
-            <span class="tag">DeFi & NFTs</span>
-            <span class="tag">Ethereum</span>
-          </div>
-        </div>
-
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">🤖 Machine Learning & AI</h3>
-              <div class="course-level">Expert</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Build intelligent systems with Python, TensorFlow, and modern ML frameworks.
-          </p>
-          <div class="course-tags">
-            <span class="tag">Python & TensorFlow</span>
-            <span class="tag">Neural Networks</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">NLP & LLMs</span>
-          </div>
-        </div>
-
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">🏗️ System Design</h3>
-              <div class="course-level">Senior</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Design scalable systems like Netflix, Uber. Perfect for senior engineering roles.
-          </p>
-          <div class="course-tags">
-            <span class="tag">Microservices</span>
-            <span class="tag">Database Design</span>
-            <span class="tag">Caching & CDN</span>
-            <span class="tag">Load Balancing</span>
-          </div>
-        </div>
-
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">☁️ Cloud & DevOps</h3>
-              <div class="course-level">Professional</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Master AWS, Docker, Kubernetes, and modern deployment strategies.
-          </p>
-          <div class="course-tags">
-            <span class="tag">AWS & Azure</span>
-            <span class="tag">Docker & K8s</span>
-            <span class="tag">CI/CD Pipelines</span>
-            <span class="tag">Monitoring</span>
-          </div>
-        </div>
-
-        <div class="course-card animate-on-scroll">
-          <div class="course-header">
-            <div>
-              <h3 class="course-title">🧠 Data Structures & Algorithms</h3>
-              <div class="course-level">Expert</div>
-            </div>
-          </div>
-          <p class="course-description">
-            Master problem-solving with comprehensive DSA courses. From basics to advanced topics.
-          </p>
-          <div class="course-tags">
-            <span class="tag">Arrays & Strings</span>
-            <span class="tag">Dynamic Programming</span>
-            <span class="tag">Graphs & Trees</span>
-            <span class="tag">System Design</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section class="portfolio" id="portfolio">
-    <div class="features-container">
-      <div class="section-header">
-        <h2 class="section-title">💼 Portfolio That Gets You Hired</h2>
-        <p class="section-subtitle">
-          Professional portfolios powered by AI and modern design principles
-        </p>
-      </div>
-      
-      <div class="portfolio-grid">
-        <div class="portfolio-item animate-on-scroll">
-          <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden;">
-            <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grain%22 width=%221%22 height=%221%22><circle cx=%220.5%22 cy=%220.5%22 r=%220.1%22 fill=%22white%22 opacity=%220.1%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grain)%22/></svg>'); opacity: 0.3;"></div>
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">🎨 AI Design</div>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title">AI-Powered Design</h3>
-            <p class="portfolio-description">
-              Intelligent layouts with AI-generated color schemes and modern aesthetics
-            </p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">AI Design</span>
-              <span class="tech-tag">Modern UI</span>
-              <span class="tech-tag">Smart Layouts</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-item animate-on-scroll">
-          <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); position: relative; overflow: hidden;">
-            <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22dots%22 width=%222%22 height=%222%22><circle cx=%221%22 cy=%221%22 r=%220.3%22 fill=%22white%22 opacity=%220.2%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23dots)%22/></svg>'); opacity: 0.4;"></div>
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">📱 Responsive</div>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title">Mobile-First Responsive</h3>
-            <p class="portfolio-description">
-              Perfect adaptation across all devices with fluid animations
-            </p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Responsive</span>
-              <span class="tech-tag">Mobile-First</span>
-              <span class="tech-tag">Cross-Platform</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-item animate-on-scroll">
-          <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); position: relative; overflow: hidden;">
-            <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22waves%22 width=%2210%22 height=%2210%22><path d=%22M0,5 Q2.5,0 5,5 T10,5%22 stroke=%22white%22 fill=%22none%22 opacity=%220.2%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23waves)%22/></svg>'); opacity: 0.3;"></div>
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 2rem; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">⚡ Performance</div>
-          </div>
-          <div class="portfolio-content">
-            <h3 class="portfolio-title">Lightning Fast Performance</h3>
-            <p class="portfolio-description">
-              Optimized for speed with lazy loading and efficient code structure
-            </p>
-            <div class="portfolio-tech">
-              <span class="tech-tag">Fast Loading</span>
-              <span class="tech-tag">Optimized</span>
-              <span class="tech-tag">SEO Ready</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials" id="testimonials">
-    <div class="features-container">
-      <div class="section-header">
-        <h2 class="section-title">🌟 Success Stories</h2>
-        <p class="section-subtitle">
-          Real results from real students who transformed their careers
-        </p>
-      </div>
-      
-      <div class="testimonials-grid">
-        <div class="testimonial-card animate-on-scroll">
-          <div class="testimonial-content">
-            "Got placed with 6 LPA package! The DSA and system design courses were game-changers. Worth every penny and more at very much less price !"
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">R</div>
-            <div class="author-info">
-              <h4>Rahul Sharma</h4>
-              <p>Software Engineer </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card animate-on-scroll">
-          <div class="testimonial-content">
-            "The portfolio they built for me was incredible! The design and animations are impressive ."
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">P</div>
-            <div class="author-info">
-              <h4>Priya Patel</h4>
-              <p>Frontend Developer</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card animate-on-scroll">
-          <div class="testimonial-content">
-            " The job support is amazing. Highly recommended if you have less money as a student or freseher to get those expensive ."
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">A</div>
-            <div class="author-info">
-              <h4>Ankit Kumar</h4>
-              <p>Full Stack Developer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2 class="cta-title">Connect With Galaxy Hub</h2>
-      <p class="cta-subtitle">
-        Follow us for exclusive courses, portfolio showcases, and career opportunities
-      </p>
-      <div class="cta-buttons">
-        <a href="https://x.com/axnmolsharma" target="_blank" class="btn btn-white">
-          🐦 Follow on X (Twitter)
-        </a>
-        <a href="https://whatsapp.com/channel/0029VbBccQv96H4ZOOCf8Z0x" target="_blank" class="btn btn-secondary">
-          💬 Join WhatsApp Community
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>🚀 Galaxy Learning Hub</h3>
-        <p>Transforming careers through premium tech education and professional development.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <a href="https://x.com/messages">Get Courses</a>
-        <a href="https://x.com/messages">Build Portfolio</a>
-        <a href="https://whatsapp.com/channel/0029VbBccQv96H4ZOOCf8Z0x">Join Community</a>
-      </div>
-      <div class="footer-section">
-        <h3>Connect With Us</h3>
-        <a href="https://x.com/axnmolsharma">Follow on X (Twitter)</a>
-        <a href="https://whatsapp.com/channel/0029VbBccQv96H4ZOOCf8Z0x">WhatsApp Community</a>
-        <a href="https://x.com/messages">DM for Support</a>
-      </div>
-      <div class="footer-section">
-        <h3>What You Get</h3>
-        <p>40+ Premium Courses (Worth ₹25,000)</p>
-        <p>Professional Portfolio (Worth ₹4,000)</p>
-        <p>Job Placement Support (Worth ₹5,000)</p>
-        <p><strong>Per Course: ₹250 | Portfolio: ₹350</strong></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Galaxy Learning Hub. All rights reserved. Transform your career today!</p>
-    </div>
-  </footer>
+  </dialog>
 
   <script>
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+    // ===== Utilities =====
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    // Year
+    $('#year').textContent = new Date().getFullYear();
+
+    // ===== Typing effect =====
+    const roles = ["Data Scientist", "ML Engineer", "Full‑Stack Developer"];
+    let r = 0, i = 0, del = false;
+    const typing = () => {
+      const t = roles[r];
+      $('#typing').textContent = t.slice(0, i);
+      if (!del && i <= t.length) i++;
+      if (i === t.length + 8) del = true; // pause
+      if (del) i--;
+      if (i <= 0 && del) { del = false; r = (r + 1) % roles.length; }
+      setTimeout(typing, del ? 50 : 90);
+    };
+    typing();
+
+    // ===== Scroll spy (active nav) =====
+    const links = $$('nav a');
+    const setActive = (id) => {
+      links.forEach(a => a.removeAttribute('aria-current'));
+      const cur = $$(`nav a[data-link="${id}"]`)[0];
+      if (cur) cur.setAttribute('aria-current','page');
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, observerOptions);
+    // Observe sections
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: "-48% 0% -48% 0%", threshold: 0.01 });
+    ['home','about','skills','projects','contact'].forEach(id => io.observe($('#' + id)));
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
+    // Smooth scroll for hash links
+    document.documentElement.style.scrollBehavior = 'smooth';
 
-    // Navigation background on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 100) {
-        nav.style.background = 'rgba(15, 15, 35, 0.95)';
-      } else {
-        nav.style.background = 'rgba(15, 15, 35, 0.8)';
-      }
-    });
-
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
+    // Handle initial hash
+    if (location.hash) {
+      const el = $(location.hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Close notification
-    function closeNotification() {
-      document.getElementById('notification').style.display = 'none';
-    }
+    // ===== Modal handling =====
+    $$('[data-modal]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-modal');
+      const dlg = document.getElementById(id);
+      if (dlg) dlg.showModal();
+    }));
+    $$('[data-close]').forEach(btn => btn.addEventListener('click', (e) => {
+      e.target.closest('dialog').close();
+    }));
 
-    // Show notification after 3 seconds
-    setTimeout(() => {
-      document.getElementById('notification').classList.add('show');
-    }, 3000);
-
-    // Auto-hide notification after 10 seconds
-    setTimeout(() => {
-      const notification = document.getElementById('notification');
-      if (notification.classList.contains('show')) {
-        notification.classList.remove('show');
-      }
-    }, 13000);
-
-    // Add floating elements animation
-    function createFloatingElements() {
-      const container = document.querySelector('.bg-pattern');
-      for (let i = 0; i < 6; i++) {
-        const element = document.createElement('div');
-        element.style.cssText = `
-          position: absolute;
-          width: ${Math.random() * 6 + 2}px;
-          height: ${Math.random() * 6 + 2}px;
-          background: radial-gradient(circle, rgba(99, 102, 241, 0.8), transparent);
-          border-radius: 50%;
-          top: ${Math.random() * 100}%;
-          left: ${Math.random() * 100}%;
-          animation: float ${Math.random() * 10 + 10}s linear infinite;
-          pointer-events: none;
-        `;
-        container.appendChild(element);
-      }
-    }
-
-    // Add CSS for floating animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes float {
-        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-
-    createFloatingElements();
-
-    // Add parallax effect to hero section
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero');
-      if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
+    // Close on ESC / backdrop
+    $$('dialog').forEach(d => {
+      d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
+      d.addEventListener('cancel', (e) => { e.preventDefault(); d.close(); });
     });
 
-    // Add counting animation to stats
-    function animateStats() {
-      const statNumbers = document.querySelectorAll('.stat-number');
-      statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          stat.textContent = stat.textContent.replace(/\d+/, Math.floor(current));
-        }, 50);
-      });
-    }
-
-    // Trigger stat animation when stats section is visible
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateStats();
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    });
-
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) {
-      statsObserver.observe(statsSection);
+    // ===== Lightweight parallax for stars (disabled for reduced motion) =====
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      let px = 0, py = 0; let raf;
+      const move = () => {
+        $('.stars').style.transform = `translate(${px * 0.02}px, ${py * 0.02}px)`;
+        $('.twinkle').style.transform = `translate(${px * -0.015}px, ${py * -0.015}px)`;
+        raf = requestAnimationFrame(move);
+      };
+      move();
+      window.addEventListener('mousemove', (e) => { px = (e.clientX - innerWidth/2); py = (e.clientY - innerHeight/2); });
+      document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else move(); });
     }
   </script>
 </body>
